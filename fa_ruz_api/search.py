@@ -1,5 +1,5 @@
-from base import RuzEndpoint
-from letterflip import letterflip
+from fa_ruz_api.base import RuzEndpoint
+from fa_ruz_api.letterflip import letterflip
 
 
 class Search(RuzEndpoint):
@@ -11,11 +11,11 @@ class Search(RuzEndpoint):
         """
         The common method for finding entities.
         """
-        if flip_letter:  # monkey-patch для случаев неправильного набора букв "с" и подобных ей.
+        if flip_letter:  # Monkey-patch flag for flipping the same looking Russian and Latin letters
             entity_name = letterflip(entity_name)
         entity_list = self._request_(term=entity_name, type=entity_type)
         if not entity_list:
-            return False
+            return None
         for entity in entity_list:
             if entity_name.casefold() in entity[entity_attribute].casefold():
                 return entity

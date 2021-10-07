@@ -17,8 +17,10 @@ LATIN_CYRILLIC_MAP = {
     'o': 'о',  # o
     'p': 'р',  # p
     'x': 'х',  # x
-    'y': 'у'   # y
+    'y': 'у'  # y
 }
+
+CYRILLIC_LATIN_MAP = {v: k for k, v in LATIN_CYRILLIC_MAP.items()}
 
 
 def letterflip(string, reverse=True):
@@ -26,7 +28,6 @@ def letterflip(string, reverse=True):
     This monkey patch performs a replacement of latin letters to same looking russian letters.
     """
     if reverse:
-        CYRILLIC_LATIN_MAP = {v: k for k, v in LATIN_CYRILLIC_MAP.items()}
         return "".join(CYRILLIC_LATIN_MAP.get(c, c) for c in string)
     else:
         return "".join(LATIN_CYRILLIC_MAP.get(c, c) for c in string)
