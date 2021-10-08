@@ -17,7 +17,7 @@ LATIN_CYRILLIC_MAP = {
     'o': 'о',  # o
     'p': 'р',  # p
     'x': 'х',  # x
-    'y': 'у'  # y
+    'y': 'у'   # y
 }
 
 CYRILLIC_LATIN_MAP = {v: k for k, v in LATIN_CYRILLIC_MAP.items()}

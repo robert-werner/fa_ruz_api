@@ -9,7 +9,8 @@ class Search(RuzEndpoint):
 
     def _find_entity_(self, entity_name, entity_type, entity_attribute, flip_letter=False, strict=True):
         """
-        The common method for finding entities.
+        Internal entity requestor.
+        Should not be used directly.
         """
         if flip_letter:  # Monkey-patch flag for flipping the same looking Russian and Latin letters
             entity_name = letterflip(entity_name)
